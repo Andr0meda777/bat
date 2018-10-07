@@ -1,4 +1,3 @@
-use directories::ProjectDirs;
 use errors::*;
 use std::borrow::Cow;
 use std::collections::BTreeMap;
@@ -8,12 +7,8 @@ use syntect::dumps::{dump_to_file, from_binary, from_reader};
 use syntect::highlighting::{Theme, ThemeSet};
 use syntect::parsing::{SyntaxDefinition, SyntaxSet};
 
+use dirs::PROJECT_DIRS;
 use inputfile::{InputFile, InputFileReader};
-
-lazy_static! {
-    static ref PROJECT_DIRS: ProjectDirs =
-        ProjectDirs::from("", "", crate_name!()).expect("Could not get home directory");
-}
 
 pub const BAT_THEME_DEFAULT: &str = "Monokai Extended";
 
